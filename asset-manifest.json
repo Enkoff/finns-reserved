@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/finns-reserved/static/css/main.6d62e3a3.chunk.css",
-    "main.js": "/finns-reserved/static/js/main.5a40d42f.chunk.js",
-    "main.js.map": "/finns-reserved/static/js/main.5a40d42f.chunk.js.map",
+    "main.js": "/finns-reserved/static/js/main.90c6000c.chunk.js",
+    "main.js.map": "/finns-reserved/static/js/main.90c6000c.chunk.js.map",
     "runtime-main.js": "/finns-reserved/static/js/runtime-main.97e88bc7.js",
     "runtime-main.js.map": "/finns-reserved/static/js/runtime-main.97e88bc7.js.map",
     "static/css/2.5527b0b9.chunk.css": "/finns-reserved/static/css/2.5527b0b9.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.5527b0b9.chunk.css",
     "static/js/2.ad6a7e68.chunk.js",
     "static/css/main.6d62e3a3.chunk.css",
-    "static/js/main.5a40d42f.chunk.js"
+    "static/js/main.90c6000c.chunk.js"
   ]
 }
