@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import CustomCalendar from './components/Calendar/Calendar';
 import Table from './components/Tabel/MyTable';
 import Button from './components/Button/Button';
-// import TableError from './components/Tabel/TableError';
+import TableError from './components/Tabel/TableError';
 
 function App() {
   const [data, setData] = useState({
@@ -74,7 +74,7 @@ function App() {
       <CustomCalendar calendarHandler={calendarHandler} calendarPressInput={calendarPressInput} tableErrorHandler={tableErrorHandler}/>
       {data.calendarData !== null && <Table tableHandler={tableHandler} tableData={data.tableData}/>}
       {data.reservationData.length !== 0 && <Button reservationData={data.reservationData} /> }
-      {/* {data.tableError !== null && <TableError error={data.tableError}/>} */}
+      {data.tableError !== null && <TableError error={data.tableError}/>}
     </div>
   );
 }

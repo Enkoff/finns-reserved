@@ -1,7 +1,10 @@
 const getData = async (d) => {
 
         const data = await fetch(`https://06604eb42cce.ngrok.io/api-test/${d}`, {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
         });
 
         if(!data.ok) {
