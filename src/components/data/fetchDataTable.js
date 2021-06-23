@@ -2,17 +2,15 @@ const getData = async (d) => {
 
         const data = await fetch(`https://06604eb42cce.ngrok.io/api-test/${d}`, {
         method: 'GET',
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
+        mode: 'no-cors'
         });
-
+        console.log(data.status);
         if(!data.ok) {
             let message;
             if (data.status === 404) {
                 message = `На цю дату бронювання не приймаються, виберіть будь ласка іншу дату!)`;
             } else {
-                message = 'Ошибка запроса!!!'
+                message = 'На даную дату пока не можно забронировать!'
             }
             throw new Error(message);
         }
