@@ -1,0 +1,83 @@
+.ant-table {
+  margin: 1rem;
+  border: 1px solid white;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;  
+  backdrop-filter: blur(10px);
+  background-color: rgba(108, 122, 137, 0.7);
+  width: 36rem;
+  height: 100%;
+}
+.ant-table th {
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  border-bottom: 1px solid white;
+  font-size: .65rem;
+  cursor: default;  
+}
+.item {
+  text-align: center;
+  cursor: default;
+}
+.item-activ {
+  background-color: rgb(221, 222, 221);
+  border: 1px solid gray;
+  box-shadow: 4px 3px 10px rgb(127, 127, 127);
+  border-radius: 5px; 
+  text-align: center;
+  padding: 2;
+  font-size: 1rem;
+  cursor: pointer; 
+}
+.item-activ:hover {
+  border: 1px solid #9c00a1;
+}
+.ant-table td:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .65rem;
+  font-weight: bold;
+  color: #CCFFFF; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  border-right: 2px solid #CCFFFF; 
+  height: 5vh;
+}
+.ant-table td .item-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .7rem;
+  font-weight: bold;
+  width: 5rem;
+  height: 2rem;
+}
+.ant-table td .item-price-activ {
+  background-color: rgb(57, 189, 96);
+}
+
+@media screen and (max-width: 650px) {
+  .ant-table {
+    width: 20rem;
+  }
+  .ant-table th {
+    font-size: .6rem;
+  }
+  .ant-table td:first-child {
+    font-size: .5rem;
+    height: 4vh;
+    width: 2rem;
+    border-right: 1px solid #CCFFFF; 
+  }
+  .ant-table td .item-price {
+    font-size: .5rem;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 1.5rem;
+  }
+}
