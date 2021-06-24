@@ -8,7 +8,7 @@ const useStyle = makeStyles((them) => ({
         justifyContent: 'center',
         alignItems: 'center',
         backdropFilter: "blur(3px)",
-        backgroundColor: 'rgba(0,0,30,0.3)'
+        backgroundColor: 'rgb(20,60,100)'
     },
     h1: {
         marginTop: 10,
