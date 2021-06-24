@@ -10,7 +10,12 @@ const CustomCalendar = props => {
 
   const onChangeHandler = async (value) => {
     setSelectedDay(value);
-    const day = `${value.year}/${value.month}/${value.day}`;
+    let month = value.month;
+    if (value.month <= 9) {
+      month = `0${month}`;
+    }
+    const day = `?q=${value.year}-${month}-${value.day}`;
+    console.log(day);
     try {
       const tableData = await fetchDataTable(day);
       calendarHandler(value, tableData);
