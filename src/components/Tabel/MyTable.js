@@ -33,7 +33,7 @@ const MyTable = props => {
     }, [tableData])
 
     const clikHandler = (placeName, time, isReserved, id, isMarked) => {
-        if (!isReserved) {
+        if (isReserved === 'true') {
             return;
         } else {
             const copyData = JSON.parse(JSON.stringify(data));
@@ -63,16 +63,16 @@ const MyTable = props => {
             checkAndAdd(id, placeName, time, isMarked);
         }
     }
-
     const RenderItem = props => {
         const { isReserved, isMarked, time, id, price, name } = props.place;
 
         let className = '';
-        if (isReserved) {
-            className = 'item-activ'
+        if (isReserved === 'false') {
+            className = 'item-disable'
         } else {
             className = 'item'
         }
+
         if (isMarked) {
             className = 'item-activ item-price-activ';
         }

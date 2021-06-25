@@ -11,6 +11,7 @@ function App() {
   const [data, setData] = useState({
     userId: null,
     calendarData: null,
+    oldCalendarData: null,
     reservationData: [],
     tableData: null,
     tableError: null
@@ -28,6 +29,11 @@ function App() {
   },[]);
 
   const calendarHandler = (calendarData, tableData) => {
+    // if (data.calendarData === calendarData) {
+    //   console.log('YES');
+    // }
+    console.log(data.oldCalendarData);
+    console.log(calendarData);
     setData(prevState => {
       return {
         ...prevState,
@@ -42,8 +48,10 @@ function App() {
     setData(prevState => {
       return {
         ...prevState,
+        oldCalendarData: data.calendarData,
         calendarData: null,
-        tableError: null
+        tableError: null,
+        reservationData: []
       }
     })
   }

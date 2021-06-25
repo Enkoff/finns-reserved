@@ -1,13 +1,14 @@
 .ant-table {
   margin: 1rem;
   border: 1px solid white;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
   display: block;  
   backdrop-filter: blur(10px);
   background-color: rgba(108, 122, 137, 0.7);
   width: 36rem;
   height: 100%;
+  padding: 3px;
 }
 .ant-table th {
   justify-content: center;
@@ -22,7 +23,7 @@
   text-align: center;
   cursor: default;
 }
-.item-activ {
+.item-disable {
   background-color: rgb(221, 222, 221);
   border: 1px solid gray;
   box-shadow: 4px 3px 10px rgb(127, 127, 127);
@@ -32,7 +33,7 @@
   font-size: 1rem;
   cursor: pointer; 
 }
-.item-activ:hover {
+.item-disable:hover {
   border: 1px solid #9c00a1;
 }
 .ant-table td:first-child {
@@ -59,6 +60,9 @@
 }
 .ant-table td .item-price-activ {
   background-color: rgb(57, 189, 96);
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #9c00a1;
 }
 
 @media screen and (max-width: 650px) {

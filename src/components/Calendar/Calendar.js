@@ -15,7 +15,7 @@ const CustomCalendar = props => {
       month = `0${month}`;
     }
     const day = `?q=${value.year}-${month}-${value.day}`;
-    console.log(day);
+
     try {
       const tableData = await fetchDataTable(day);
       calendarHandler(value, tableData);
