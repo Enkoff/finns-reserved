@@ -6,8 +6,10 @@ import CustomCalendar from './components/Calendar/Calendar';
 import Table from './components/Tabel/MyTable';
 import Button from './components/Button/Button';
 import TableError from './components/Tabel/TableError';
+// import fetchDataTable from './components/data/fetchDataTable';
 
 function App() {
+
   const [data, setData] = useState({
     userId: null,
     calendarData: null,
@@ -19,21 +21,16 @@ function App() {
 
   useEffect(() => {
     const userId = window.location.href;
-
     setData(prevState => {
       return {
         ...prevState,
         userId
       }
-    })
+    });
   },[]);
 
   const calendarHandler = (calendarData, tableData) => {
-    // if (data.calendarData === calendarData) {
-    //   console.log('YES');
-    // }
-    console.log(data.oldCalendarData);
-    console.log(calendarData);
+
     setData(prevState => {
       return {
         ...prevState,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
+import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import './Calendar.css';
 import fetchDataTable from '../data/fetchDataTable';
 
@@ -15,7 +15,6 @@ const CustomCalendar = props => {
       month = `0${month}`;
     }
     const day = `?q=${value.year}-${month}-${value.day}`;
-
     try {
       const tableData = await fetchDataTable(day);
       calendarHandler(value, tableData);
@@ -54,6 +53,7 @@ const CustomCalendar = props => {
       onChange={value => onChangeHandler(value)}
       renderInput={renderCustomInput}
       shouldHighlightWeekends
+      minimumDate={utils().getToday()}
     />
   );
 }

@@ -1,24 +1,25 @@
-const BASE_URL = 'https://f05a0e942e75.ngrok.io'
+// const BASE_URL = 'https://f05a0e942e75.ngrok.io';
+import { tableData } from './testDataTable';
 
 const getData = async (d) => {
 
-        const data = await fetch(`${BASE_URL}/${d}`, {
-        method: 'GET',
-        });
+        // const data = await fetch(`${BASE_URL}/${d}`, {
+        // method: 'GET',
+        // });
 
-        if(!data.ok) {
-            let message;
-            if (data.status === 404) {
-                message = `На цю дату бронювання не приймаються, виберіть будь ласка іншу дату!)`;
-            } else {
-                message = 'На даную дату пока не можно забронировать!'
-            }
-            throw new Error(message);
-        }
+        // if(!data.ok) {
+        //     let message;
+        //     if (data.status === 404) {
+        //         message = `На цю дату бронювання не приймаються, виберіть будь ласка іншу дату!)`;
+        //     } else {
+        //         message = 'На даную дату пока не можно забронировать!'
+        //     }
+        //     throw new Error(message);
+        // }
 
-        const parseData = await data.json();
+        // const parseData = await data.json();
 
-        const newData = parseData.map((el, index) => {
+        const newData = tableData.map((el, index) => {
 
             let id = el.place1.name + el.place1.price + el.place1.time + el.id;
             el.id = index + 1;
