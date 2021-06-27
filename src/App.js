@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import { CssBaseline } from '@material-ui/core';
-import Header from './components/Header/Header';
-import CustomCalendar from './components/Calendar/Calendar';
-import Table from './components/Tabel/MyTable';
-import Button from './components/Button/Button';
-import TableError from './components/Tabel/TableError';
+import { useState, useEffect } from "react";
+import "./App.css";
+import { CssBaseline } from "@material-ui/core";
+import Header from "./components/Header/Header";
+import CustomCalendar from "./components/Calendar/Calendar";
+import Table from "./components/Tabel/MyTable";
+import Button from "./components/Button/Button";
+import TableError from "./components/Tabel/TableError";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 function App() {
   const [data, setData] = useState({
@@ -13,69 +15,78 @@ function App() {
     calendarData: null,
     reservationData: [],
     tableData: null,
-    tableError: null
+    tableError: null,
   });
 
   useEffect(() => {
     const userId = window.location.href;
 
-    setData(prevState => {
+    setData((prevState) => {
       return {
         ...prevState,
-        userId
-      }
-    })
-  },[]);
+        userId,
+      };
+    });
+  }, []);
 
   const calendarHandler = (calendarData, tableData) => {
-    setData(prevState => {
+    setData((prevState) => {
       return {
         ...prevState,
         calendarData,
         reservationData: [],
-        tableData
-      }
+        tableData,
+      };
     });
-  }
+  };
 
   const calendarPressInput = () => {
-    setData(prevState => {
+    setData((prevState) => {
       return {
         ...prevState,
         calendarData: null,
-        tableError: null
-      }
-    })
-  }
+        tableError: null,
+      };
+    });
+  };
 
-
-  const tableHandler = reservatin => {
-    setData(prevState => {
+  const tableHandler = (reservatin) => {
+    setData((prevState) => {
       return {
         ...prevState,
         reservationData: reservatin,
-      }
-    })
-  }
+      };
+    });
+  };
 
-  const tableErrorHandler = err => {
-    setData(prevState => {
+  const tableErrorHandler = (err) => {
+    setData((prevState) => {
       return {
         ...prevState,
-        tableError: err
-      }
-    })
-  }
+        tableError: err,
+      };
+    });
+  };
 
   return (
-    <div className="App">
-      <CssBaseline />
-      <Header />
-      <CustomCalendar calendarHandler={calendarHandler} calendarPressInput={calendarPressInput} tableErrorHandler={tableErrorHandler}/>
-      {data.calendarData !== null && <Table tableHandler={tableHandler} tableData={data.tableData}/>}
-      {data.reservationData.length !== 0 && <Button reservationData={data.reservationData} /> }
-      {data.tableError !== null && <TableError error={data.tableError}/>}
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <CssBaseline />
+        <Header />
+        <CustomCalendar
+          calendarHandler={calendarHandler}
+          calendarPressInput={calendarPressInput}
+          tableErrorHandler={tableErrorHandler}
+        />
+        {data.calendarData !== null && (
+          <Table tableHandler={tableHandler} tableData={data.tableData} />
+        )}
+        {data.reservationData.length !== 0 && (
+          <Button reservationData={data.reservationData} />
+        )}
+        {data.tableError !== null && <TableError error={data.tableError} />}
+      </div>
+    </Provider>
   );
 }
 
